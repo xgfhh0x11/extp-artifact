@@ -34,6 +34,12 @@ every proof is parametric in the threshold Δ* and is unchanged.
    21.41 %/11.62 % (cross-boot), became 1.43 %/1.76 % and 21.49 %/11.79 %.
    Table V and both demonstration figures were regenerated.
 
+Post-release text edit (2026-10-15, same version): the related-work section now
+positions CST against VM replay for intrusion analysis (ReVirt, TTVM, REPT) and
+symbolic root-cause analysis of exploits (ARCUS), and cites concurrent SCM-replay
+work outside security, Chakraborty–Caulfield–Pym's intervention logic, and Cock
+et al.'s seL4 timing-channel measurements. No number, proof or claim scope changed.
+
 Artifact changes:
 
 - `logs/`: all raw boot logs added (17 boot logs + 2 demonstration logs,
