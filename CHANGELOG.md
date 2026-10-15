@@ -45,6 +45,15 @@ generated values, restated the silent-hook result per event (2 of 100 events exc
 aligned the instrument-policy, scope and cross-reference wording; `CST_Demonstration4.txt`
 (cross-boot probe, σ = 5,614) added to `logs/` and `gen_numbers.py`.
 
+Version 2.1 wording (2026-10-16, same record): the threshold is now *defined* as the
+rational table value k_hat_n = floor(k_n * 2^16) / 2^16; the Gaussian family-wise quantile
+k_n is the table's motivation, not a definition. Every script reads the table
+(`measurements/kn_table.py`); re-running all v2 measurements with the table value changes
+no reported number (the generated macro file is byte-identical). The table is verified by an
+independent 50-digit mpmath recomputation (`measurements/verify_kn_table.py`, 0 mismatches
+for n <= 4096). The CMD mechanization that imports CST no longer needs an irrational k_n or
+a bracket axiom.
+
 Artifact changes:
 
 - `logs/`: all raw boot logs added (17 boot logs + 2 demonstration logs,

@@ -28,7 +28,9 @@ Version 1" states them in context.
 | `measurements/extp_numbers.tex` | The generated macro file the preprint was built with. |
 | `measurements/analyze_pair_clause.py` (+ `.out`) | The per-event pair-difference timing clause evaluated on zero-intervention pairs at k = 1.645 (version 1) and at k_n (version 2); the source of the realized false-positive rates in §MI. |
 | `measurements/tail_check.py` (+ `.out`) | Whether the events exceeding k_n·σ coincide with the markers recorded per sample (P-state, thermal status, APERF/MPERF). |
-| `measurements/gen_kn_table.py` | Generates the Q16.16 rational table of k_n (rounded down) used by implementations. |
+| `measurements/kn_table.py` | The threshold multiplier, single source: `k_hat(n) = floor(k_n * 2^16) / 2^16` (exact rational); every script, the C reducer and the Isabelle side use this value. |
+| `measurements/gen_kn_table.py` | Emits the table as a C header / Isabelle theory from `kn_table.py`. |
+| `measurements/verify_kn_table.py` (+ `.out`) | Independent recomputation of the table with mpmath at 50 digits; 0 mismatches for n <= 4096. |
 | `measurements/section6_summary.txt` | Numerical summary of the synthetic demonstration (version-1 thresholds; superseded by `extp_numbers.tex`). |
 | `measurements/cross_boot_BOOT_INSTRUCTIONS.txt` | Cross-boot stability collection protocol and hardware identity (N=34 reported in the paper). |
 | `measurements/demo_BOOT_INSTRUCTIONS.txt` | Counterfactual fuzzing sweep protocol (r8 varied across 33 curated values). |

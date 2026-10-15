@@ -31,8 +31,9 @@ RAW_C = re.compile(r'\[EXTp\]\[TIMING_RAW\] sample=(\d+) cond=(\d+) nopcount=(\d
 RAW_N = re.compile(r'\[EXTp\]\[TIMING_RAW\] sample=(\d+) delta=(\d+)')
 BOOT  = re.compile(r'\[EXTp\]\[BOOT\] boot_count=|BOOT_START boot=')
 
-def k_n(n, alpha=ALPHA):
-    return 2 ** 0.5 * NormalDist().inv_cdf(1 - alpha / (2 * n))
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from kn_table import k_float as k_n   # table value floor(k_n*2^16)/2^16 -- the definition (v2.1)
 
 def _bcdf(x, n, p):
     from math import lgamma, log, exp

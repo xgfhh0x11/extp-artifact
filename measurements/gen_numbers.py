@@ -52,8 +52,11 @@ def null_logs(d, which):
     return sorted(os.path.basename(x) for x in glob.glob(os.path.join(d, 'boot_log*.txt')))
 
 
-def k_n(n, alpha=ALPHA):
-    return 2 ** 0.5 * NormalDist().inv_cdf(1 - alpha / (2 * n))
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from kn_table import k_float as k_n   # table value floor(k_n*2^16)/2^16 -- the definition (v2.1)
+def k_n_gauss(n, alpha=ALPHA):
+    return 2 ** 0.5 * NormalDist().inv_cdf(1 - alpha / (2 * n))   # motivation only
 
 
 # ---------- binomial / Clopper-Pearson ----------
