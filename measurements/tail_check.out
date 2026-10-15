@@ -1,0 +1,27 @@
+boot                              i |diff|/sig  sample-A markers / sample-B markers   (raw deltas)
+boot_log9.txt#b0                 16      4.37                   therm / therm                  (18551518, 18587064)
+boot_log11.txt#b0                 2      4.65                   therm / -                      (18587946, 18554986)
+boot_log12.txt#b0                33      4.77                       - / -                      (18555124, 18583704)
+boot_log13.txt#b0                33      4.91                       - / therm                  (18539864, 18581544)
+boot_logN100_final.txt#b0         0      6.33                   therm / -                      (18587296, 18544676)
+boot_logN100_final.txt#b2         8      6.09                   therm / therm                  (18579354, 18536598)
+boot_logN100_final.txt#b2        12      5.18                       - / therm                  (18577968, 18541586)
+boot_logN100_final.txt#b4         0      4.87                   therm / -                      (18548728, 18589064)
+boot_logN100_final.txt#b6        19      4.59                       - / therm                  (18577536, 18550326)
+boot_logN100_final.txt#b9        16      4.81                       - / therm                  (18566810, 18587918)
+boot_logN100_final.txt#b9        37      7.88                   therm / therm                  (18578592, 18543978)
+boot_logN100_final.txt#b14       17      7.08            pstate,therm / therm                  (18581404, 18546818)
+boot_logN100_final.txt#b14       34      4.58                       - / pstate,therm           (18583434, 18561070)
+boot_logN100_final.txt#b15       17      6.23            pstate,therm / pstate,therm           (18580012, 18542294)
+boot_logN100_final.txt#b18       20      6.35                       - / pstate                 (18581540, 18538302)
+boot_logN100_final.txt#b18       36      5.48                       - / therm                  (18548648, 18585944)
+boot_logN100_final.txt#b21       35      6.97                  pstate / therm                  (18584344, 18541218)
+boot_logN100_final.txt#b23       19      5.95                       - / therm                  (18587112, 18554768)
+boot_logN100_final.txt#b26        4      6.01            pstate,therm / -                      (18583044, 18554580)
+boot_logN100_final.txt#b26       31      5.41                   therm / -                      (18588466, 18562846)
+boot_logN100_final.txt#b27       21      4.56                       - / therm                  (18550708, 18582936)
+boot_logN100_final.txt#b28       22      4.70                       - / -                      (18543176, 18583592)
+
+=== marker rate on exceeding vs non-exceeding events ===
+  exceed  events=    22  pstate= 27.3%  therm= 86.4%  freq=  0.0%  mperf=  0.0%  none=  9.1%
+  other   events=  1476  pstate= 39.9%  therm= 72.1%  freq=  0.0%  mperf=  0.0%  none= 19.9%
