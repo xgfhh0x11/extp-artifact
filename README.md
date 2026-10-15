@@ -48,7 +48,7 @@ Version 1" states them in context.
 | `boot_log8.txt` … `boot_log16.txt` | Single-boot calibration, sweep and demonstration runs with per-sample markers (`mperf_d`, `aperf_d`, `perf_status`, `therm`). `boot_log12` is the L1-pchase calibration (S1, n = 108), `boot_log15` the L2-pchase calibration (S2, n = 39), `boot_log14` the 4,500-iteration probe. |
 | `boot_logN34_archive.txt` | The N = 34 cross-boot campaign reported in the paper. |
 | `boot_logN100_final.txt` | The follow-up cross-boot campaign (29 boots collected before the hardware became unavailable). |
-| `CST_Demonstration5.txt`, `CST_Demonstration3.txt` | Silent-hook (n = 100 per condition) and naïve-hook (n = 23) demonstration runs of §Evaluation. |
+| `CST_Demonstration5.txt`, `CST_Demonstration3.txt`, `CST_Demonstration4.txt` | Silent-hook (n = 100 per condition) and naïve-hook (n = 23) demonstration runs of §Evaluation, and the 3-boot cross-boot probe of the synthetic guest (σ = 5,614, n = 69 pooled). |
 | `boot_log.txt`, `boot_log2–4.txt`, `boot_log6.txt`, `boot_log7.txt` | First-day development runs: overlapping partial captures of an N = 20 campaign, a CMOS-only test, and the first single-boot instrument test. Shipped for completeness; not in the paper's set. |
 
 The paper's zero-intervention set (§MI, the lemma's α_realized) is

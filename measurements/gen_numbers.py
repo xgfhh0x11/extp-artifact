@@ -10,6 +10,7 @@ Inputs (all in DIR, as shipped in the artifact's logs/ directory):
                                     the calibration sweeps of boot_log12/15
   CST_Demonstration5.txt            silent-hook demonstration (sec:eval-demo)
   CST_Demonstration3.txt            naive-hook counter-demonstration
+  CST_Demonstration4.txt            cross-boot probe of the synthetic guest (3 boots in alternation)
 
 Pure stdlib.  Every quantity is computed the way the paper defines it:
   sigma_base  sample standard deviation (n-1) of the post-warm-up (idx >= 20)
@@ -230,12 +231,22 @@ def main():
     M['NNaive'] = str(min(len(no), len(nc))); M['SigNaive'] = grp(nsig); M['SigNaiveRatio'] = grp(nsig / ds)
     M['SdNaive'] = grp(statistics.stdev(no)); M['SigNaiveMcyc'] = f'{nsig / 1e6:.1f}'; M['SigNaiveMs'] = f'{nsig / GHZ / 1e6:.2f}'
     M['DstarDemoOld'] = grp(K_OLD * sd); M['SigSilentRatioOld'] = f'{sig / (K_OLD * sd):.3f}'; M['SigNaiveRatioOld'] = grp(nsig / (K_OLD * sd))
+    # per-event exceedances of the silent-hook pair at Dstar (the clause, not the mean)
+    sx = sum(1 for x, y in zip(so, sc) if abs(y - x) > ds); slo_, shi_ = cp_ci(sx, n)
+    M['SilentExceed'] = str(sx); M['SilentExceedPct'] = pct(100 * sx / n, 1)
+    M['SilentExceedLo'] = pct(100 * slo_, 1); M['SilentExceedHi'] = pct(100 * shi_, 1)
+    # cross-boot probe of the synthetic guest: cond-0 post-warm-up samples pooled over its boots
+    cb = parse(L + 'CST_Demonstration4.txt'); pooled = [d for b in cb for d in post(b).get(0, [])]
+    M['NBootsDemoCross'] = str(len(cb)); M['NDemoCross'] = str(len(pooled)); M['SigDemoCross'] = grp(statistics.stdev(pooled))
 
     # ===== (4) envelopes (App. D): structural = eps + delta_A1 + a, timing = delta_A1 + 2a, delta_A1 = eps =====
     ar = 100 * ex_kn / events
     for key, eps in (('Within', EPS_WITHIN_PCT), ('Cross', EPS_CROSS_PCT)):
         M['Env' + key + 'Struct'] = pct(2 * eps + ar); M['Env' + key + 'Timing'] = pct(eps + 2 * ar)
     M['EpsWithin'] = pct(EPS_WITHIN_PCT); M['EpsCross'] = pct(EPS_CROSS_PCT, 1)
+    # two claims of opposite witness (within-boot): mixed-witness aggregate vs the naive 2x worst-clause bound
+    M['EnvWithinPair'] = pct((2 * EPS_WITHIN_PCT + ar) + (EPS_WITHIN_PCT + 2 * ar))
+    M['EnvWithinNaive'] = pct(2 * (EPS_WITHIN_PCT + 2 * ar))
 
     # ===== (5) Gaussian power: mean shift (in sigma) at which the clause fires on half the traces, n = 108 =====
     def fam_power(mu, n_, k):

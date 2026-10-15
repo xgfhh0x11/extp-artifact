@@ -38,7 +38,12 @@ Post-release text edit (2026-10-15, same version): the related-work section now
 positions CST against VM replay for intrusion analysis (ReVirt, TTVM, REPT) and
 symbolic root-cause analysis of exploits (ARCUS), and cites concurrent SCM-replay
 work outside security, Chakraborty–Caulfield–Pym's intervention logic, and Cock
-et al.'s seL4 timing-channel measurements. No number, proof or claim scope changed.
+et al.'s seL4 timing-channel measurements. No number, proof or claim scope changed. A consistency pass the same day replaced the
+last two version-1 envelope figures in the body (1.35 %, 2.94 %/3.18 %) with the
+generated values, restated the silent-hook result per event (2 of 100 events exceed
+Δ*, consistent with α_realized) instead of as a mean-level "subthreshold" claim, and
+aligned the instrument-policy, scope and cross-reference wording; `CST_Demonstration4.txt`
+(cross-boot probe, σ = 5,614) added to `logs/` and `gen_numbers.py`.
 
 Artifact changes:
 
