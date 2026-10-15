@@ -8,7 +8,9 @@ core, the raw boot logs and the scripts that derive every measured number in the
 paper from them, the seL4/EXTp VMM boot images used for the bare-metal runs, and
 the paper figures.
 
-**Version 2 (October 2026).** Version 1 reported false-positive rates measured
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23403670.svg)](https://doi.org/10.5281/zenodo.23403670)
+
+**Version 2 (October 2026, doi:10.5281/zenodo.23403670).** Version 1 (doi:10.5281/zenodo.22849591) reported false-positive rates measured
 with a different statistic than the one the paper's lemma defines, and used a
 per-event threshold that the lemma's own clause fires on in every trace. See
 `CHANGELOG.md` for the list of corrections; the paper's Appendix "Erratum to
@@ -121,6 +123,7 @@ numbers were collected with; the VMM source tree is not part of this release.
   author = {Utku Erol},
   title  = {{EXTp}: A Soundness Theorem for Counterfactual Exploit Replay on Formally Verified Microkernels},
   year   = {2026},
+  doi    = {10.5281/zenodo.23403670},
   note   = {Preprint, version 2. Artifact: https://github.com/xgfhh0x11/extp-artifact}
 }
 ```

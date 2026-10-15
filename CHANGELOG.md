@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 2 — October 2026
+## Version 2 — October 2026 — doi:10.5281/zenodo.23403670
 
 Version 1 (September 2026, doi:10.5281/zenodo.22849591) remains available on
 Zenodo and is superseded by this version. It contained the following errors;
