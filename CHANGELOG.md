@@ -54,6 +54,14 @@ independent 50-digit mpmath recomputation (`measurements/verify_kn_table.py`, 0 
 for n <= 4096). The CMD mechanization that imports CST no longer needs an irrational k_n or
 a bracket axiom.
 
+Version 2.1 wording, second edit (2026-10-16, same record): the silent-hook
+demonstration states its unit explicitly (one aligned sample pair per event, all
+within a single trace) and counts events; next to the family-wise rate, the MI
+section and the demonstration now quote the trace-level silence rate, the
+zero-intervention traces on which the clause never fires (56/74, 75.7 %,
+Clopper-Pearson [64.3, 84.9] %), emitted by `gen_numbers.py` as
+`TraceSilentKn/Rate/Lo/Hi`. No measured number changed.
+
 Artifact changes:
 
 - `logs/`: all raw boot logs added (17 boot logs + 2 demonstration logs,
