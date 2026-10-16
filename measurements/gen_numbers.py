@@ -18,7 +18,8 @@ Pure stdlib.  Every quantity is computed the way the paper defines it:
   k_n         sqrt(2) * z_{1 - alpha/(2n)},  alpha = 0.05
   Dstar       k_n * sigma_base
   clause      exists i. |T_c[i] - T_o[i]| > Dstar   (pair-difference, per event)
-  null pairs  interleaved halves of one boot's cond=0 samples
+  null pairs  interleaved halves of one boot's cond=0 samples; one aligned
+              (T_o[i], T_o'[i]) sample pair per event, one trace per boot
   CIs         Clopper-Pearson (binomial), chi^2 (sigma), 95 %
 The two inputs that come from other measurements (eps_SOE bounds) are
 constants below, marked as such.
@@ -192,6 +193,9 @@ def main():
     M['NullExceedKn'] = str(ex_kn); M['FamFireKn'] = str(fam_kn)
     M['ARealized'] = pct(100 * ex_kn / events); M['ARealizedLo'] = pct(100 * lo); M['ARealizedHi'] = pct(100 * hi)
     M['FamRate'] = pct(100 * fam_kn / pairs, 1); M['FamLo'] = pct(100 * flo, 1); M['FamHi'] = pct(100 * fhi, 1)
+    # trace-level silence under no intervention: boots on which the clause never fires (complement of the family-wise rate)
+    M['TraceSilentKn'] = str(pairs - fam_kn); M['TraceSilentRate'] = pct(100 * (pairs - fam_kn) / pairs, 1)
+    M['TraceSilentLo'] = pct(100 * (1 - fhi), 1); M['TraceSilentHi'] = pct(100 * (1 - flo), 1)
     M['NominalEvent'] = pct(nominal_pct); M['NominalExpected'] = pct(exp_nominal, 1)
     M['RealizedOverNominal'] = pct((100 * ex_kn / events) / nominal_pct, 1)
     M['ExceedOld'] = pct(100 * ex_old / events, 1); M['FamFireOld'] = str(fam_old)
